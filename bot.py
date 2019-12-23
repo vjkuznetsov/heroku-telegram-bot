@@ -35,7 +35,6 @@ def search_poster_(message):
 #    f.write(urllib.request.urlopen(result_link).read())
 #    bot.send_photo(message.chat.id, f)
     bot.send_photo(message.chat.id, img=BytesIO(urllib.request.urlopen(result_link).read()))
-    f.close()
 
 
 if __name__ == '__main__':
