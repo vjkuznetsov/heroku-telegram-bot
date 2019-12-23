@@ -1,4 +1,5 @@
 google-search-results==1.7.1
+pyTelegramBotAPI==3.6.6
 PyYAML==5.2
 requests==2.22.0
 wikipedia==1.4.0
