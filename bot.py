@@ -9,8 +9,9 @@ from search_engine import search_watch, search_poster, search_info
 with open("cfg.yml","r") as ymlfile:
     cfg = yaml.load(ymlfile, Loader=yaml.Loader)
 
-telegram_token = os.environ['TELEGRAM_TOKEN']
-search_engine_token = os.environ['SE_TOKEN']
+telegram_token = os.getenv('TELEGRAM_TOKEN')
+search_engine_token = os.getenv('SE_TOKEN')
+print(telegram_token, search_engine_token)
 
 bot = telebot.TeleBot(telegram_token)
 
