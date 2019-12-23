@@ -18,7 +18,7 @@ bot = telebot.TeleBot(telegram_token)
 def send_welcome(message):
     bot.reply_to(message, "Hello, I'm simple echo bot. Tell me something!")
 
-@bot.message_handler(func=lambda m: True)
+@bot.message_handler(commands=['find'])
 def search_watch_(message):
     result_link = search_watch(message=message, cfg=cfg)
     bot.reply_to(message, result_link)
