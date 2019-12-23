@@ -17,7 +17,9 @@ def search_watch(message, cfg):
 
 def search_info(message, cfg):
     wikipedia.set_lang(cfg["search_engine"]["language"])
-    return wikipedia.summary(f"{message} {INFO_PREFIX}")
+    find_query = f"{message} {INFO_PREFIX}"
+    print(find_query)
+    return wikipedia.summary(find_query)
 
 def search_poster(message, cfg):
     params = {"q": message}
