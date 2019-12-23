@@ -10,7 +10,7 @@ with open("cfg.yml","r") as ymlfile:
     cfg = yaml.load(ymlfile, Loader=yaml.Loader)
 
 telegram_token = os.environ['TELEGRAM_TOKEN']
-search_engine_token = osn.environ['SE_TOKEN']
+search_engine_token = os.environ['SE_TOKEN']
 bot = telebot.TeleBot(telegram_token)
 
 @bot.message_handler(commands=['start', 'help'])
