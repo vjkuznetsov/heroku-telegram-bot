@@ -11,7 +11,6 @@ with open("cfg.yml","r") as ymlfile:
 
 telegram_token = os.getenv('TELEGRAM_TOKEN')
 search_engine_token = os.getenv('SE_TOKEN')
-print(telegram_token, search_engine_token)
 
 bot = telebot.TeleBot(telegram_token)
 
