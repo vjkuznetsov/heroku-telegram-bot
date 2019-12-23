@@ -20,18 +20,21 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['find'])
 def search_watch_(message):
-    result_link = search_watch(message=message, cfg=cfg)
+    message_text = message.text.lstrip('/find')
+    result_link = search_watch(message=message_text, cfg=cfg)
     bot.reply_to(message, result_link)
 
 @bot.message_handler(commands=['info'])
 def search_info_(message):
-    wiki_summary = search_info(message, cfg)
+    message_text = message.text.lstrip('/info')
+    wiki_summary = search_info(message_text, cfg)
     bot.reply_to(message, wiki_summary)
 
 
 @bot.message_handler(commands=['poster'])
 def search_poster_(message):
-    result_link = search_poster(message, cfg)
+    message_text = message.text.lstrip('/poster')
+    result_link = search_poster(message_text, cfg)
     bot.send_photo(message.chat.id, BytesIO(urllib.request.urlopen(result_link).read()))
 
 if __name__ == '__main__':
