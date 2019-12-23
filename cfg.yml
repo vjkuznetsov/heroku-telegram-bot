@@ -1,0 +1,9 @@
+search_engine:
+    location: Moscow, Russia
+    country: ru
+    language: ru
+    domain: google.ru
+    device: desktop
+
+serpapi:
+    exceeded_date: 2020-01-06
