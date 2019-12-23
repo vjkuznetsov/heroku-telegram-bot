@@ -10,7 +10,8 @@ with open("cfg.yml","r") as ymlfile:
     cfg = yaml.load(ymlfile, Loader=yaml.Loader)
 
 telegram_token = os.getenv('TELEGRAM_TOKEN')
-cfg['search_engine']['api_key'] = os.getenv('SE_TOKEN')
+cfg_se = cfg['search_engine']
+cfg_se['api_key'] = os.getenv('SE_TOKEN')
 
 bot = telebot.TeleBot(telegram_token)
 
@@ -22,12 +23,13 @@ def send_welcome(message):
 def search_watch_(message):
     message_text = message.text.lstrip('/find')
     result_link = search_watch(message=message_text, cfg=cfg)
-    bot.reply_to(message, result_link)
+    bot.send_message(message.chat.id, result_link)
 
 @bot.message_handler(commands=['info'])
 def search_info_(message):
     message_text = message.text.lstrip('/info')
     wiki_summary = search_info(message_text, cfg)
+    bot.send_message(message.chat.id, wiki_summary)
     bot.reply_to(message, wiki_summary)
 
 
