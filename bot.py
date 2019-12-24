@@ -42,8 +42,6 @@ def _check_api_key_expired(cfg):
     """
     expired_day = cfg["serpapi"]["expired_date"]
     expired_day_dt = datetime.datetime.strptime(expired_day, '%Y-%m-%d')
-    print(expired_day_dt)
-    print(datetime.datetime.now())
     return expired_day_dt < datetime.datetime.now()
 
 
@@ -62,7 +60,7 @@ bot = telebot.TeleBot(telegram_token)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    if _check_api_key_expired:
+    if _check_api_key_expired(cfg):
         bot.reply_to(message, API_KEY_EXCEEDED_MESSAGE)
     else:
         bot.reply_to(message, WELCOME_MESSAGE)
