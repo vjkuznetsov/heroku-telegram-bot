@@ -41,8 +41,7 @@ def _check_api_key_expired(cfg):
     cfg -- dict with configuration from yaml
     """
     expired_day = cfg["serpapi"]["expired_date"]
-    expired_day_dt = datetime.datetime.strptime(expired_day, '%Y-%m-%d')
-    return expired_day_dt < datetime.datetime.now()
+    return expired_day < datetime.datetime.now()
 
 
 def _exc_logger(message, exc):
